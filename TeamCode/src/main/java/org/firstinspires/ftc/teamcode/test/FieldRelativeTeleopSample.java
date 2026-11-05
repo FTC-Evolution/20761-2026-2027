@@ -68,8 +68,7 @@ public class FieldRelativeTeleopSample extends OpMode {
         BackLeftMotor = hardwareMap.get(DcMotor.class, "BackLeftMotor");
         BackRightMotor = hardwareMap.get(DcMotor.class, "BackRightMotor");
 
-        // We set the left motors in reverse which is needed for drive trains where the left
-        // motors are opposite to the right ones.
+        // Only set FrontLeftMotor as forward, since it is how our robot is built.
         BackLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         FrontLeftMotor.setDirection(DcMotor.Direction.FORWARD);
         BackRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
