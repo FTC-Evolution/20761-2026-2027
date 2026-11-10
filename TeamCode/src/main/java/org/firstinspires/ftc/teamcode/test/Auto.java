@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="BioBuzz_Auto_4Motors", group="Starter")
+@Autonomous(name="Auto (ai)", group="Test")
 public class Auto extends LinearOpMode {
 
     // Timer to track autonomous duration
