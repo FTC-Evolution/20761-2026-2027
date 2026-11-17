@@ -34,6 +34,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.IMU;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 /*
@@ -53,16 +54,20 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 @TeleOp(name = "Field Relative Mecanum Drive", group = "TeleOp")
 public class FieldRelativeTeleopSample extends OpMode {
     // This declares the four motors needed
+
+    private ElapsedTime runtime = new ElapsedTime();
     DcMotor FrontLeftMotor;
     DcMotor FrontRightMotor;
     DcMotor BackLeftMotor;
     DcMotor BackRightMotor;
+    Intake intake = new Intake();
 
     // This declares the IMU needed to get the current direction the robot is facing
     IMU imu;
 
     @Override
     public void init() {
+        intake.init(this);
         FrontLeftMotor = hardwareMap.get(DcMotor.class, "FrontLeftMotor");
         FrontRightMotor = hardwareMap.get(DcMotor.class, "FrontRightMotor");
         BackLeftMotor = hardwareMap.get(DcMotor.class, "BackLeftMotor");
@@ -85,13 +90,15 @@ public class FieldRelativeTeleopSample extends OpMode {
         imu = hardwareMap.get(IMU.class, "imu");
         // This needs to be changed to match the orientation on your robot
         RevHubOrientationOnRobot.LogoFacingDirection logoDirection =
-                RevHubOrientationOnRobot.LogoFacingDirection.BACKWARD;
+                RevHubOrientationOnRobot.LogoFacingDirection.LEFT;
         RevHubOrientationOnRobot.UsbFacingDirection usbDirection =
                 RevHubOrientationOnRobot.UsbFacingDirection.UP;
 
         RevHubOrientationOnRobot orientationOnRobot = new
                 RevHubOrientationOnRobot(logoDirection, usbDirection);
         imu.initialize(new IMU.Parameters(orientationOnRobot));
+
+        runtime.reset();
     }
 
     @Override
@@ -100,11 +107,13 @@ public class FieldRelativeTeleopSample extends OpMode {
         telemetry.addLine("Hold left bumper to drive in robot relative");
         telemetry.addLine("The left joystick sets the robot direction");
         telemetry.addLine("Moving the right joystick left and right turns the robot");
-
+        telemetry.addData("runtime", runtime.toString());
+        intake.eat();
         // If you press the A button, then you reset the Yaw to be zero from the way
         // the robot is currently pointing
         if (gamepad1.a) {
             imu.resetYaw();
+
         }
         // If you hold the left bumper, you get a drive from the point of view of the robot
         // (much like driving an RC vehicle)
