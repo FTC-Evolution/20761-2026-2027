@@ -108,6 +108,7 @@ public class FieldRelativeTeleopSample extends OpMode {
         telemetry.addLine("The left joystick sets the robot direction");
         telemetry.addLine("Moving the right joystick left and right turns the robot");
         telemetry.addData("runtime", runtime.toString());
+        // eat is from intake.java (eats ball)
         intake.eat();
         // If you press the A button, then you reset the Yaw to be zero from the way
         // the robot is currently pointing
