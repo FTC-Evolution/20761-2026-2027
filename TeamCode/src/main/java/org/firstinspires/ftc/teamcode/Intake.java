@@ -18,7 +18,7 @@ public class Intake {
         // when gamepad2 a pressed, take balls. (hold)
         if(opMode.gamepad2.a) {
             IntakeMotor.setPower(1);
-            opMode.telemetry.addData("A held", "Intaking pollen"); // to add later: transfer message.
+            opMode.telemetry.addData("A held", "Intaking pollen"); // to add later: transfer message
         }
         // when gamepad2 b pressed, remove balls. (hold)
         else if(opMode.gamepad2.b) {
