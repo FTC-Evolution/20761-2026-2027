@@ -59,6 +59,18 @@ public class Auto extends LinearOpMode {
             rightBack.setPower(0.4);
 
             sleep(2000); // Wait for 2000 milliseconds (2 seconds)
+            leftFront.setPower(0.0);
+            rightFront.setPower(0.4);
+            leftBack.setPower(0.0);
+            rightBack.setPower(0.4);
+
+            sleep(1000); // Wait for 2000 milliseconds (2 seconds)
+            leftFront.setPower(0.4);
+            rightFront.setPower(0.4);
+            leftBack.setPower(0.4);
+            rightBack.setPower(0.4);
+
+            sleep(4000); // Wait for 2000 milliseconds (2 seconds)
         }
 
         // STEP 2: Stop all motors safely
