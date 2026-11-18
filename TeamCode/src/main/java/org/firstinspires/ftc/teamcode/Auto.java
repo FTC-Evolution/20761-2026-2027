@@ -1,9 +1,8 @@
-package org.firstinspires.ftc.teamcode.test;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="Auto (ai)", group="Test")
@@ -53,24 +52,36 @@ public class Auto extends LinearOpMode {
             telemetry.addData("Status", "Step 1: Moving Forward");
             telemetry.update();
 
-            leftFront.setPower(0.4);
-            rightFront.setPower(0.4);
-            leftBack.setPower(0.4);
-            rightBack.setPower(0.4);
+            leftFront.setPower(0.5);
+            rightFront.setPower(0.5);
+            leftBack.setPower(0.5);
+            rightBack.setPower(0.5);
+            sleep(1900);
 
-            sleep(2000); // Wait for 2000 milliseconds (2 seconds)
+
+            leftFront.setPower(-0.5);
+            rightFront.setPower(0.5);
+            leftBack.setPower(0.5);
+            rightBack.setPower(-0.5);
+            sleep(900);
+
+            leftFront.setPower(0.5);
+            rightFront.setPower(0.5);
+            leftBack.setPower(0.5);
+            rightBack.setPower(0.5);
+            sleep(1900);
+
             leftFront.setPower(0.0);
-            rightFront.setPower(0.4);
-            leftBack.setPower(0.0);
-            rightBack.setPower(0.4);
+            rightFront.setPower(0.5);
+            leftBack.setPower(-0.5);
+            rightBack.setPower(0.0);
+            sleep(1207);
 
-            sleep(1000); // Wait for 2000 milliseconds (2 seconds)
-            leftFront.setPower(0.4);
-            rightFront.setPower(0.4);
-            leftBack.setPower(0.4);
-            rightBack.setPower(0.4);
-
-            sleep(4000); // Wait for 2000 milliseconds (2 seconds)
+            leftFront.setPower(0.5);
+            rightFront.setPower(0.5);
+            leftBack.setPower(0.5);
+            rightBack.setPower(0.5);
+            sleep(1900);
         }
 
         // STEP 2: Stop all motors safely
