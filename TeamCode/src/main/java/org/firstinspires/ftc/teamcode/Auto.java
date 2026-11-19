@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+
+
 @Autonomous(name="Auto (ai)", group="Test")
 public class Auto extends LinearOpMode {
 
@@ -82,6 +84,8 @@ public class Auto extends LinearOpMode {
             leftBack.setPower(0.5);
             rightBack.setPower(0.5);
             sleep(1900);
+
+
         }
 
         // STEP 2: Stop all motors safely

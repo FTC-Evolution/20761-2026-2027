@@ -73,8 +73,8 @@ public class MecanumDrive extends OpMode {
         BackLeftMotor = hardwareMap.get(DcMotor.class, "BackLeftMotor");
         BackRightMotor = hardwareMap.get(DcMotor.class, "BackRightMotor");
 
-        // Only set FrontLeftMotor as forward, since it is how our robot is built.
-        BackLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+        // Set motor directions.
+        BackLeftMotor.setDirection(DcMotor.Direction.FORWARD);
         FrontLeftMotor.setDirection(DcMotor.Direction.FORWARD);
         BackRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         FrontRightMotor.setDirection(DcMotor.Direction.REVERSE);
@@ -116,8 +116,7 @@ public class MecanumDrive extends OpMode {
             imu.resetYaw();
 
         }
-        // If you hold the left bumper, you get a drive from the point of view of the robot
-        // (much like driving an RC vehicle)
+        // If you hold the left bumper, you drive robot relative.
         if (gamepad1.left_bumper) {
             drive(-gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
         } else {
